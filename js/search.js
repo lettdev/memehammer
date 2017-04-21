@@ -43,8 +43,8 @@ let query = {
     return `${BASE_URL}${ENDPOINT}?q=${this.text}&limit=${LIMIT}&rating=${RATING}&offset=${this.offset}&api_key=${PUBLIC_KEY}`;
   },
   fetch(callback) {    
-    if (`${getCustom()[0].url}` !== null) {
-      console.log(`${getCustom()[0].url}`);
+    if (`${userDefined[0].url}` !== null) {
+      console.log(`${userDefined[0].url}`);
       // let result = userDefined.filter(function( obj ) {
       //   for (var i = 0; i < obj.tags.length; i++) {
       //     if (obj.tags[i] == this.text) {
