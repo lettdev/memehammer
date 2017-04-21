@@ -13,15 +13,17 @@ let $clear = $('.clear');
 let $another = $('.another');
 let $copy = $('.copy');
 let currentTimeout;
+let userDefined = [];
 
 function init() {
   $.getJSON('custom.json')
   .then(data => {
-    let userDefined = data;
+    userDefined = data;
     $('.container').removeClass('ninja');
   })
   .fail(error => {
     console.log(error);
+    $('.container').removeClass('ninja');
   });
 }
 init();
@@ -33,21 +35,33 @@ let query = {
     return `${BASE_URL}${ENDPOINT}?q=${this.text}&limit=${LIMIT}&rating=${RATING}&offset=${this.offset}&api_key=${PUBLIC_KEY}`;
   },
   fetch(callback) {
-    $.getJSON(this.request())
-      .then(data => {
-        let results = data.data;
-        
-        if (results.length) {
-          let url = results[0].images.downsized.url;
-          console.log(results);
-          callback(url);
-        } else {
-          callback('');
+    if (userDefined.length) {
+      let result = userDefined.filter(function( obj ) {
+        for (var i = 0; i < obj.tags.length; i++) {
+          if (obj.tags[i] == this.text) {
+            return obj;
+          }
         }
-      })
-      .fail(error => {
-        console.log(error);
       });
+      let url = result[0].url;
+      callback(url);
+    } else {
+      $.getJSON(this.request())
+        .then(data => {
+          let results = data.data;
+          
+          if (results.length) {
+            let url = results[0].images.downsized.url;
+            console.log(results);
+            callback(url);
+          } else {
+            callback('');
+          }
+        })
+        .fail(error => {
+          console.log(error);
+        });
+    }
   }
 }
 
