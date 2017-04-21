@@ -50,6 +50,7 @@ let query = {
   },
   fetch(callback) {
     let customMeme = getCustom(`${this.text}`);
+    console.log(customMeme);
     if (customMeme !== null) {
       console.log(customMeme[0].url);
       // let url = result[0].url;
