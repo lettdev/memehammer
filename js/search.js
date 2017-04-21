@@ -1,6 +1,6 @@
 // Remove protocols + test logs
 const PUBLIC_KEY = 'dc6zaTOxFJmzC';
-const BASE_URL = 'https://api.giphy.com/v1/gifs/';
+const BASE_URL = '//api.giphy.com/v1/gifs/';
 const ENDPOINT = 'search';
 const LIMIT = 1;
 const RATING = 'pg';
@@ -20,7 +20,6 @@ function init() {
   .then(data => {
     userDefined = data;
     $('.container').removeClass('ninja');
-    console.log(userDefined);
   })
   .fail(error => {
     $('.container').removeClass('ninja');
@@ -62,7 +61,7 @@ let query = {
           
           if (results.length) {
             let url = results[0].images.downsized.url;
-            console.log(results);
+            // console.log(results);
             callback(url);
           } else {
             callback('');
