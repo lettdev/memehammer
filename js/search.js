@@ -18,7 +18,7 @@ let userDefined = [];
 function init() {
   $.getJSON('custom.json')
   .then(data => {
-    userDefined = data;
+    let userDefined = data;
     $('.container').removeClass('ninja');
     console.log(userDefined);
   })
@@ -36,17 +36,18 @@ let query = {
     return `${BASE_URL}${ENDPOINT}?q=${this.text}&limit=${LIMIT}&rating=${RATING}&offset=${this.offset}&api_key=${PUBLIC_KEY}`;
   },
   fetch(callback) {
-    console.log(this.text);
+    console.log(${this.text});
     if (userDefined.length) {
-      let result = userDefined.filter(function( obj ) {
-        for (var i = 0; i < obj.tags.length; i++) {
-          if (obj.tags[i] == this.text) {
-            return obj;
-          }
-        }
-      });
-      let url = result[0].url;
-      callback(url);
+      console.log('okay');
+      // let result = userDefined.filter(function( obj ) {
+      //   for (var i = 0; i < obj.tags.length; i++) {
+      //     if (obj.tags[i] == this.text) {
+      //       return obj;
+      //     }
+      //   }
+      // });
+      // let url = result[0].url;
+      // callback(url);
     } else {
       $.getJSON(this.request())
         .then(data => {
