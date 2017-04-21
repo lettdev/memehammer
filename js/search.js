@@ -20,6 +20,7 @@ function init() {
   .then(data => {
     userDefined = data;
     $('.container').removeClass('ninja');
+    console.log(userDefined);
   })
   .fail(error => {
     console.log(error);
@@ -35,6 +36,7 @@ let query = {
     return `${BASE_URL}${ENDPOINT}?q=${this.text}&limit=${LIMIT}&rating=${RATING}&offset=${this.offset}&api_key=${PUBLIC_KEY}`;
   },
   fetch(callback) {
+    console.log(this.text);
     if (userDefined.length) {
       let result = userDefined.filter(function( obj ) {
         for (var i = 0; i < obj.tags.length; i++) {
