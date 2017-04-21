@@ -28,9 +28,15 @@ function init() {
 }
 init();
 
-function getCustom() {
-  if (!userDefined) {
-    return userDefined;
+function getCustom(txt) {
+  if (userDefined !== null) {
+    let result = userDefined.filter(function( obj ) {
+      for (var i = 0; i < obj.tags.length; i++) {
+        if (obj.tags[i] == txt) {
+          return obj;
+        }
+      }
+    });
   } else {
     return null;
   }
@@ -42,16 +48,10 @@ let query = {
   request() {
     return `${BASE_URL}${ENDPOINT}?q=${this.text}&limit=${LIMIT}&rating=${RATING}&offset=${this.offset}&api_key=${PUBLIC_KEY}`;
   },
-  fetch(callback) {    
-    if (`${userDefined[0].url}` !== null) {
-      console.log(`${userDefined[0].url}`);
-      // let result = userDefined.filter(function( obj ) {
-      //   for (var i = 0; i < obj.tags.length; i++) {
-      //     if (obj.tags[i] == this.text) {
-      //       return obj;
-      //     }
-      //   }
-      // });
+  fetch(callback) {
+    let customMeme = getCustom(`${this.text}`);
+    if (customMeme !== null) {
+      console.log(customMeme[0].url);
       // let url = result[0].url;
       // callback(url);
     } else {
