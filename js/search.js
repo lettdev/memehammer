@@ -35,8 +35,8 @@ let query = {
     return `${BASE_URL}${ENDPOINT}?q=${this.text}&limit=${LIMIT}&rating=${RATING}&offset=${this.offset}&api_key=${PUBLIC_KEY}`;
   },
   fetch(callback) {    
-    if (!userDefined) {
-      console.log(userDefined);
+    if (!`${userDefined}`) {
+      console.log(`${userDefined}`);
       // let result = userDefined.filter(function( obj ) {
       //   for (var i = 0; i < obj.tags.length; i++) {
       //     if (obj.tags[i] == this.text) {
