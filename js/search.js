@@ -29,6 +29,7 @@ function init() {
 init();
 
 function getCustom(txt) {
+  let result = [];
   if (userDefined !== null) {
     let result = userDefined.filter(function( obj ) {
       for (var i = 0; i < obj.tags.length; i++) {
@@ -39,7 +40,7 @@ function getCustom(txt) {
     });
     return result;
   } else {
-    return null;
+    return result;
   }
 }
 
@@ -51,7 +52,7 @@ let query = {
   },
   fetch(callback) {
     let customMeme = getCustom(`${this.text}`);
-    if (customMeme !== null) {
+    if (customMeme.length) {
       let url = customMeme[0].url;
       callback(url);
     } else {
