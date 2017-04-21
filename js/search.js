@@ -37,6 +37,7 @@ function getCustom(txt) {
         }
       }
     });
+    return result;
   } else {
     return null;
   }
