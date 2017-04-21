@@ -13,21 +13,21 @@ let $clear = $('.clear');
 let $another = $('.another');
 let $copy = $('.copy');
 let currentTimeout;
-let userDefined = [];
 
 function init() {
   $.getJSON('custom.json')
   .then(data => {
-    let userDefined = data;
+    let ud = data;
     $('.container').removeClass('ninja');
-    console.log(userDefined);
+    return ud;
   })
   .fail(error => {
-    console.log(error);
+    let ud = [];
     $('.container').removeClass('ninja');
+    return ud;
   });
 }
-init();
+let userDefined = init();
 
 let query = {
   text: null,
@@ -35,10 +35,9 @@ let query = {
   request() {
     return `${BASE_URL}${ENDPOINT}?q=${this.text}&limit=${LIMIT}&rating=${RATING}&offset=${this.offset}&api_key=${PUBLIC_KEY}`;
   },
-  fetch(callback) {
-    console.log(`${this.text}`);
+  fetch(callback) {    
     if (userDefined.length) {
-      console.log('okay');
+      console.log(userDefined);
       // let result = userDefined.filter(function( obj ) {
       //   for (var i = 0; i < obj.tags.length; i++) {
       //     if (obj.tags[i] == this.text) {
