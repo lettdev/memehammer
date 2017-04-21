@@ -1,0 +1,106 @@
+/* this is a green */
+/* this is a yellow babe */
+.button-success {
+  background: #1cb841;
+  color: white; }
+
+.button-note {
+  background: #ffcc35;
+  color: white; }
+
+.pure-button, .pure-form input {
+  border-radius: 0 !important; }
+
+.container {
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto 2em; }
+
+.title {
+  text-indent: -9999px;
+  background: url("../img/logo.gif") 0 center no-repeat transparent;
+  transition: 300ms ease; }
+
+.search-box {
+  position: relative;
+  transition: 300ms ease; }
+  .search-box .query {
+    width: 100%;
+    padding: 0 25px;
+    transition: 300ms ease; }
+    .search-box .query:focus {
+      outline: none;
+      border: 1px solid #1cb841 !important;
+      transition: 300ms ease; }
+  .search-box .loader {
+    height: 3px;
+    margin: 0;
+    padding: 0;
+    background: white;
+    margin: 0 auto;
+    position: relative; }
+    .search-box .loader:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #1cb841;
+      width: 0%;
+      height: 3px;
+      transition: 300ms ease; }
+    .search-box .loader.done:before {
+      width: 100%; }
+  .search-box .clear {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 36px;
+    width: 36px;
+    opacity: 1; }
+    .search-box .clear:before {
+      content: '\00d7';
+      font-size: 24px;
+      color: #1cb841;
+      position: absolute;
+      top: 0;
+      left: 0;
+      text-align: center;
+      width: 100%;
+      line-height: 36px;
+      transition: 300ms ease; }
+    .search-box .clear:hover:before {
+      cursor: pointer; }
+  .search-box.active {
+    margin-top: -60px; }
+    .search-box.active .query {
+      margin-top: 0px;
+      transition: 300ms ease; }
+    .search-box.active .clear {
+      height: 36px; }
+      .search-box.active .clear:before {
+        line-height: 36px; }
+  .search-box.empty .clear {
+    opacity: 0; }
+
+.result {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1em 0 0; }
+  .result img, .result p.no-results {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    opacity: 1;
+    transition: 300ms ease; }
+  .result p.no-result {
+    font-weight: 200; }
+    .result p.no-result.center {
+      text-align: center; }
+
+.control {
+  margin: 10px 0;
+  text-align: center; }
+  .control button {
+    width: 40%;
+    transition: 300ms ease; }

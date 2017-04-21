@@ -1,0 +1,157 @@
+$primary-color: rgb(28, 184, 65); /* this is a green */
+$yellow: rgb(255, 204, 53); /* this is a yellow babe */
+$transition: 300ms ease;
+
+.button-success {
+  background: $primary-color;
+  color: white;
+}
+.button-note {
+  background: $yellow;
+  color: white;
+}
+.pure-button, .pure-form input {
+  border-radius: 0 !important;
+}
+
+.container {
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto 2em;
+}
+
+.title {
+  text-indent: -9999px;
+  background: url('../img/logo.gif') 0 center no-repeat transparent;
+  transition: $transition;
+}
+
+.search-box {
+  position: relative;
+
+  .query {
+    width: 100%;
+    padding: 0 25px;
+
+    &:focus {
+      outline: none;
+      border: 1px solid $primary-color !important;
+      transition: $transition;
+    }
+
+    transition: $transition;
+  }
+
+  .loader {
+    height: 3px;
+    margin: 0;
+    padding: 0;
+    background: white;
+    margin: 0 auto;
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: $primary-color;
+      width: 0%;
+      height: 3px;
+      transition: $transition;
+    }
+
+    &.done {
+      &:before {
+        width: 100%;
+      }
+    }
+  }
+
+  .clear {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 36px;
+    width: 36px;
+    opacity: 1;
+
+    &:before {
+      content: '\00d7';
+      font-size: 24px;
+      color: $primary-color;
+      position: absolute;
+      top: 0;
+      left: 0;
+      text-align: center;
+      width: 100%;
+      line-height: 36px;      
+      transition: $transition;
+    }
+    
+    &:hover {
+      &:before {
+        cursor: pointer;
+      }
+    }
+  }
+  
+  &.active {
+    margin-top: -60px;
+    
+    .query {
+      margin-top: 0px;
+      transition: $transition;
+    }
+    
+    .clear {
+      height: 36px;
+      
+      &:before {
+        line-height: 36px;
+      }
+    }
+  }
+  
+  &.empty {
+    .clear {
+      opacity: 0;
+    }
+  }
+  
+  transition: $transition;
+}
+
+.result {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1em 0 0;
+  
+  img, p.no-results {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    opacity: 1; 
+    transition: $transition;
+  }
+  
+  p.no-result {
+    font-weight: 200;
+    
+    &.center {
+      text-align: center;
+    }
+  }
+}
+
+.control {
+  margin: 10px 0;
+  text-align: center;
+
+  button {
+    width: 40%;
+    transition: $transition;
+  }
+  
+}
