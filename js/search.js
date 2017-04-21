@@ -28,6 +28,14 @@ function init() {
 }
 init();
 
+function getCustom() {
+  if (!userDefined) {
+    return userDefined;
+  } else {
+    return null;
+  }
+}
+
 let query = {
   text: null,
   offset: 0,
@@ -35,8 +43,8 @@ let query = {
     return `${BASE_URL}${ENDPOINT}?q=${this.text}&limit=${LIMIT}&rating=${RATING}&offset=${this.offset}&api_key=${PUBLIC_KEY}`;
   },
   fetch(callback) {    
-    if (!`${userDefined}`) {
-      console.log(`${userDefined}`);
+    if (`${getCustom()[0].url}` !== null) {
+      console.log(`${getCustom()[0].url}`);
       // let result = userDefined.filter(function( obj ) {
       //   for (var i = 0; i < obj.tags.length; i++) {
       //     if (obj.tags[i] == this.text) {
