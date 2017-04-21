@@ -17,7 +17,8 @@ let currentTimeout;
 function init() {
   $.getJSON('custom.json')
   .then(data => {
-    console.log(data);
+    let userDefined = data;
+    $('.container').removeClass('ninja');
   })
   .fail(error => {
     console.log(error);

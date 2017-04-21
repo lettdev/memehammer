@@ -14,7 +14,11 @@
 .container {
   width: 90%;
   max-width: 600px;
-  margin: 0 auto 2em; }
+  margin: 0 auto 2em;
+  opacity: 1;
+  transition: 300ms ease; }
+  .container.ninja {
+    opacity: 0; }
 
 .title {
   text-indent: -9999px;

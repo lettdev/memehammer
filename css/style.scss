@@ -18,6 +18,13 @@ $transition: 300ms ease;
   width: 90%;
   max-width: 600px;
   margin: 0 auto 2em;
+  opacity: 1;
+
+  &.ninja {
+    opacity: 0;
+  }
+
+  transition: $transition;
 }
 
 .title {
