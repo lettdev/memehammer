@@ -32,7 +32,7 @@ function getCustom(txt) {
   if (userDefined !== null) {
     let result = userDefined.filter(function( obj ) {
       for (var i = 0; i < obj.tags.length; i++) {
-        if (obj.tags[i] == txt) {
+        if (obj.tags[i].toLowerCase() == txt.toLowerCase()) {
           return obj;
         }
       }
